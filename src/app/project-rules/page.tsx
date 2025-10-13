@@ -4,6 +4,7 @@ type Props = {};
 
 const Home = (props: Props) => {
   const rules = [
+    "[IMPORTANT] All commits should be made properly. Use appropriate commit messages and follow the conventional commit message convention from the docs provided below.",
     "All shadcn components will be present in src/components/ui",
     "All custom components should be present in src/components. The components which are used globally should be stored in the src/components/common dir.",
     "All server actions should be written in src/app/actions. If a server action is performing an operation on an events collection in the db or something similar, then the file in which this action should be written is src/app/actions/events.action.ts",
@@ -15,6 +16,19 @@ const Home = (props: Props) => {
     "All fonts will be present in src/app/fonts",
     "Design your components and pages accordingly following these architecture rules.",
     "Keep a note that we are using Nextjs v14 and TailwindCSS v3.4.1. Kindly do not change the dependency values",
+  ];
+
+  // Add the important URLs here
+  const importantUrls = [
+    // Example:
+    {
+      title: "Conventional Commits Documentation",
+      url: "https://www.conventionalcommits.org/en/v1.0.0/",
+    },
+    {
+      title: "GitHub Repository",
+    },
+    { title: "shadcn/ui Documentation", url: "https://ui.shadcn.com/docs" },
   ];
 
   return (
@@ -50,6 +64,31 @@ const Home = (props: Props) => {
             </span>{" "}
             Remember to design accordingly!
           </span>
+        </div>
+        <div className="mt-10 w-full">
+          <h2 className="text-2xl font-semibold text-cyan-300 mb-3 underline underline-offset-4">
+            Important URLs & Resources
+          </h2>
+          {importantUrls.length > 0 ? (
+            <ul className="list-disc list-inside space-y-2 text-lg text-gray-100">
+              {importantUrls.map((item, idx) => (
+                <li key={idx} className="pl-2">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-200 hover:text-cyan-400 underline"
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-gray-400 italic pl-2">
+              No important URLs added yet.
+            </p>
+          )}
         </div>
       </div>
     </div>

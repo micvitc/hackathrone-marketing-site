@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hackathrone Marketing Site
 
-## Getting Started
+A modern marketing website built with Next.js 14, TypeScript, and Tailwind CSS for the Hackathrone event.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 3.4.1
+- **UI Components**: shadcn/ui
+- **Icons**: Lucide React
+- **Package Manager**: npm
+
+## 🏗️ Development Guidelines
+
+### File Organization Rules
+
+1. **shadcn/ui Components**: All shadcn components should be placed in `src/components/ui/`
+2. **Custom Components**: All custom components should be in `src/components/`. Globally used components go in `src/components/common/`
+3. **Server Actions**: All server actions should be written in `src/app/actions/`. For specific collections (e.g., events), use descriptive filenames like `events.action.ts`
+4. **Data Models**: All models should be written in `src/app/models/`. For specific collections, use descriptive filenames like `events.model.ts`
+5. **Custom Hooks**: All hooks should be placed in `src/hooks/`
+6. **Utilities**: All utility functions should be in `src/lib/utils`
+7. **Styles**: All global styles should be in `src/app/globals.css`
+8. **Images**: All images should be placed in `src/public/images/`
+9. **Fonts**: All custom fonts should be in `src/app/fonts/`
+
+### Commit Guidelines
+
+**IMPORTANT**: All commits should follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification.
+
+Examples:
+
+- `feat: add user authentication`
+- `fix: resolve navigation bug`
+- `docs: update README`
+- `style: format code with prettier`
+- `refactor: reorganize component structure`
+
+## 🛠️ Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd hackathrone-marketing-site
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-## Learn More
+## 🎨 Design System
 
-To learn more about Next.js, take a look at the following resources:
+This project uses:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **shadcn/ui** for consistent, accessible UI components
+- **Tailwind CSS** for utility-first styling
+- **Lucide React** for consistent iconography
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Styling Guidelines
 
-## Deploy on Vercel
+- Use Tailwind CSS classes for styling
+- Follow the existing design patterns
+- Maintain consistency with the established color scheme
+- Use semantic HTML elements for accessibility
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📚 Important Resources
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Conventional Commits Documentation](https://www.conventionalcommits.org/en/v1.0.0/)
+- [shadcn/ui Documentation](https://ui.shadcn.com/docs)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+
+## 📝 Notes
+
+- This project uses Next.js v14 and Tailwind CSS v3.4.1 - please do not change these dependency versions
+- The UI/UX design will be provided soon
+- All team members should familiarize themselves with this architecture before contributing
