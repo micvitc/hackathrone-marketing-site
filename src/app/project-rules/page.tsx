@@ -27,6 +27,7 @@ const Home = (props: Props) => {
     },
     {
       title: "GitHub Repository",
+      url: "https://github.com/micvitc/hackathrone-marketing-site",
     },
     { title: "shadcn/ui Documentation", url: "https://ui.shadcn.com/docs" },
   ];
