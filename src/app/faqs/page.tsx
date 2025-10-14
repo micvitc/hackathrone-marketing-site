@@ -4,24 +4,40 @@ import React, { useRef, useState } from "react";
 type Props = {};
 
 const Home = (props: Props) => {
-  const questionsanswers = [
-    {
-      question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
-      answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum."
-    },
-    {
-      question: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?",
-      answer: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-    },
-    {
-      question: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur?",
-      answer: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-    },
-    {
-      question: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum?",
-      answer: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    }
-  ];
+const questionsanswers = [
+  {
+    question: "What is the format of the Throne of Code tournament?",
+    answer: "The tournament consists of 4 themed rounds: HTML Conquest, CSS Clash, JavaScript + Git Gauntlet, and The Final Siege. Each round tests different web development skills and includes quizzes, tasks, and eliminations."
+  },
+  {
+    question: "How are teams formed and named?",
+    answer: "Teams represent iconic Game of Thrones houses, each themed around a dev skillset. Examples include House Targaryen (React Lords), House Stark (CSS Defenders), and House Greyjoy (Backend Raiders). Each team has 2–4 members."
+  },
+  {
+    question: "What kind of tasks are included in each round?",
+    answer: "Tasks range from HTML-only page building, CSS styling challenges, JavaScript quizzes, Git operations, and full-stack website cloning. Each round is progressively more complex and creative."
+  },
+  {
+    question: "How is scoring and elimination handled?",
+    answer: "Each round is scored out of 100 points based on accuracy, design, creativity, code quality, and presentation. The lowest-scoring teams are eliminated after each round until the final showdown."
+  },
+  {
+    question: "Can teams use frameworks or libraries?",
+    answer: "Yes, in the final round teams may use frameworks like React, Next.js, Tailwind, and APIs. Earlier rounds restrict tools to test pure HTML, CSS, and JavaScript skills."
+  },
+  {
+    question: "Are there any bonus features or twists?",
+    answer: "Yes! Power Cards, medieval props, live leaderboards, and a Design Lord judge add flair and unpredictability. Teams can earn extra points or save themselves from elimination."
+  },
+  {
+    question: "Who judges the tournament and how are winners decided?",
+    answer: "Faculty members or senior developers form the judging panel. The final winner is crowned based on total score, deployment success, and presentation quality."
+  },
+  {
+    question: "What are the winner titles?",
+    answer: "Winning teams earn titles like 'The Lords of the Iron Code', 'The Maesters of Web', or 'The Commit Kings'. Glory awaits those who conquer the Throne of Code!"
+  }
+];
   
   const [openIndex, setOpenIndex] = useState<number | null>(-1);
 
@@ -33,23 +49,20 @@ const Home = (props: Props) => {
 
   return (
     <>
-          <link href="https://fonts.googleapis.com/css2?family=Centaur:wght@400;700&display=swap" rel="stylesheet" />
 
       <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
-      <style>
-        
-      </style>
-      <div className="relative w-full min-h-screen h-screen flex flex-col justify-start items-center text-white p-10 " style={{ fontFamily: "Centaur, serif" }}>
+     
+      <div className="relative w-full flex flex-col justify-start items-center text-white ">
      
 
         <div className="w-full max-w-4xl flex flex-col items-center">
           <h1
-        className="text-[64px] leading-[80px] font-normal uppercase mb-8"
+        className="text-5xl md:text-6xl leading-[80px]  uppercase mb-8"
         style={{ fontFamily: "Cinzel Decorative, serif" }}
           >
         FAQs
           </h1>
-          <div className="w-full flex flex-col gap-6 max-h-[90vh]  overflow-y-auto pr-2">
+          <div className="w-full flex flex-col gap-6 max-h-[55vh]  overflow-y-auto pr-2">
         {questionsanswers.map((qa, index) => {
           const isOpen = openIndex === index;
           return (
@@ -60,7 +73,7 @@ const Home = (props: Props) => {
                 onClick={() => toggle(index)}
                 className="w-full text-left p-6 flex items-center justify-between gap-4"
               >
-                <div className="text-[32px] leading-[36px] font-normal lowercase font-centaur text-white">
+                <div className="text-[32px] leading-[36px]  font-cinzel-decorative text-white">
                   {qa.question}
                 </div>
                 <div
@@ -79,7 +92,7 @@ const Home = (props: Props) => {
                 }}
               >
                 <div className="p-6">
-                  <span className="text-[20px] leading-[28px] font-normal lowercase text-white">
+                  <span className="text-[20px] leading-[28px]   text-white">
                     {qa.answer}
                   </span>
                 </div>
@@ -90,7 +103,7 @@ const Home = (props: Props) => {
           </div>
           <br />
           <svg
-            width="399"
+            width="70vw"
             height="28"
             viewBox="0 0 399 28"
             fill="none"

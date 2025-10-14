@@ -38,7 +38,7 @@ const Home = (props: Props) => {
       <div className="flex flex-col justify-center items-start gap-8 p-10 rounded-2xl shadow-2xl  bg-opacity-75 border border-gray-800">
 =======
     <div className="h-screen flex justify-center items-center bg-gradient-to-br from-black via-gray-900 to-zinc-800 text-[#F2E6D6] p-10">
-      <div className="flex flex-col justify-center items-start gap-8 p-10 rounded-2xl shadow-2xl bg-black bg-opacity-75 border border-gray-800">
+      <div className="flex flex-col justify-center items-start gap-8 p-10 rounded-2xl shadow-2xl  bg-opacity-75 border border-gray-800">
 >>>>>>> 41257f8a99b37689e8ae74556984f6c87ecbd392
         <div className="mb-4">
           <h1 className="text-4xl font-bold mb-2 text-cyan-400 drop-shadow-lg">

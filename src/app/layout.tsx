@@ -23,7 +23,7 @@ const cinzelDecorative = localFont({
 });
 
 const centaur = localFont({
-  src: "../../public/fonts/centaur-regular.ttf",
+  src: "../../public/fonts/CENTAUR.ttf",
   variable: "--font-centaur",
   weight: "400",
 });
