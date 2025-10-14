@@ -72,7 +72,7 @@ const Footer = () => {
               width={276}
               height={137}
               className="w-full h-auto max-w-[276px]"
-            />
+            />Implement responsive footer with detailed styling
           </div>
         </div>
       </div>
