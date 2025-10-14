@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "@/components/common/footer";
+import Navbar from "@/components/common/navbar";
+import { CurvedBorder } from "@/components/curvedBorder";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -11,6 +14,18 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const cinzelDecorative = localFont({
+  src: "./fonts/CinzelDecorative-Bold.ttf",
+  variable: "--font-cinzel-decorative",
+  weight: "700",
+});
+
+const centaur = localFont({
+  src: "./fonts/centaur-regular.ttf",
+  variable: "--font-centaur",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -26,9 +41,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${centaur.variable} antialiased bg-black`}
       >
+        <CurvedBorder className="p-2 m-3" strokeColor="#C9A85E" strokeWidth={2}>
+                  <CurvedBorder className="p-1" strokeColor="#C9A85E" strokeWidth={1}><Navbar />
         {children}
+        </CurvedBorder></CurvedBorder>
+        <Footer />
       </body>
     </html>
   );

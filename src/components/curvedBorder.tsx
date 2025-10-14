@@ -11,7 +11,7 @@ export const CurvedBorder: React.FC<{
   strokeColor = "#ffffff",
   strokeWidth = 2,
 }) => (
-  <div className={`relative bg-[#18171b] rounded-xl ${className || ""}`}>
+  <div className={`relative h-[100%] bg-[#0B0B0D] rounded-xl ${className || ""}`}>
     {/* Top Left */}
     <svg
       className="absolute -top-0 -left-0"
@@ -94,6 +94,6 @@ export const CurvedBorder: React.FC<{
     <div className="absolute top-11 bottom-11 right-0 w-0.5"
       style={{ borderLeft: `${strokeWidth}px solid ${strokeColor}`, zIndex: 10 }} />
 
-    <div className="relative z-10">{children}</div>
+    <div className="relative z-10 h-[100%]">{children}</div>
   </div>
 );
