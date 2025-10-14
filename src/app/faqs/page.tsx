@@ -39,7 +39,7 @@ const Home = (props: Props) => {
       <style>
         
       </style>
-      <div className="relative w-full min-h-screen h-screen flex flex-col justify-start items-center bg-[#0B0B0D] text-white p-10 " style={{ fontFamily: "Centaur, serif" }}>
+      <div className="relative w-full min-h-screen h-screen flex flex-col justify-start items-center text-white p-10 " style={{ fontFamily: "Centaur, serif" }}>
      
 
         <div className="w-full max-w-4xl flex flex-col items-center">

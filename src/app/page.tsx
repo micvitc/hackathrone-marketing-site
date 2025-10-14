@@ -9,7 +9,7 @@ type Props = {};
 const Home = (props: Props) => {
   const router = useRouter();
   return (
-    <div className="h-screen flex items-center justify-center bg-black">
+    <div className="h-screen flex items-center justify-center ">
       <Button
         onClick={() => router.push("/project-rules")}
         variant={"secondary"}

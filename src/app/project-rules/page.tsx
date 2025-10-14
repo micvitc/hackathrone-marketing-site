@@ -34,7 +34,7 @@ const Home = (props: Props) => {
 
   return (
     <div className="h-screen flex justify-center items-center bg-gradient-to-br from-black via-gray-900 to-zinc-800 text-white p-10">
-      <div className="flex flex-col justify-center items-start gap-8 p-10 rounded-2xl shadow-2xl bg-black bg-opacity-75 border border-gray-800">
+      <div className="flex flex-col justify-center items-start gap-8 p-10 rounded-2xl shadow-2xl  bg-opacity-75 border border-gray-800">
         <div className="mb-4">
           <h1 className="text-4xl font-bold mb-2 text-cyan-400 drop-shadow-lg">
             Welcome to Our Project

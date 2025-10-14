@@ -16,13 +16,13 @@ const geistMono = localFont({
 });
 
 const cinzelDecorative = localFont({
-  src: "./fonts/CinzelDecorative-Bold.ttf",
+  src: "../../public/fonts/CinzelDecorative-Bold.ttf",
   variable: "--font-cinzel-decorative",
   weight: "700",
 });
 
 const centaur = localFont({
-  src: "./fonts/centaur-regular.ttf",
+  src: "../../public/fonts/centaur-regular.ttf",
   variable: "--font-centaur",
   weight: "400",
 });
@@ -40,9 +40,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${centaur.variable} antialiased bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${centaur.variable} antialiased  bg-[#0B0B0D]`}
       >
-        <Navbar />
+        <div className="flex justify-center w-[100vw] items-center">
+          <Navbar />
+        </div>
+        <br /><br/>
         {children}
         <Footer />
       </body>
