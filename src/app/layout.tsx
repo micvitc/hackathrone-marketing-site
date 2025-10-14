@@ -42,7 +42,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${centaur.variable} antialiased  bg-[#0B0B0D]`}
       >
-        <div className="flex justify-center w-[100vw] items-center">
+        <div className="flex justify-center  items-center">
           <Navbar />
         </div>
         <br /><br/>
