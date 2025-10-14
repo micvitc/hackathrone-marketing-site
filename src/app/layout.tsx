@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "@/components/common/footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -11,6 +12,18 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const cinzelDecorative = localFont({
+  src: "./fonts/CinzelDecorative-Bold.ttf",
+  variable: "--font-cinzel-decorative",
+  weight: "700",
+});
+
+const centaur = localFont({
+  src: "./fonts/centaur-regular.ttf",
+  variable: "--font-centaur",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -26,9 +39,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${centaur.variable} antialiased bg-black`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );
