@@ -12,13 +12,6 @@ const centaurFont = `'Centaur', 'EB Garamond', 'Georgia', serif`;
 
 export default function AboutPage() {
   return (
-<<<<<<< HEAD
-    <div className="flex items-center justify-center h-screen  text-white text-4xl font-bold">
-      <h1>About Page</h1>
-    </div>
-  );
-};
-=======
     <section className="min-h-screen bg-[#0B0B0D] flex flex-col justify-center items-center py-12 px-2">
       {/* Outer Container */}
       <div className=" w-full  pb-10 pt-6 px-3 md:px-8 shadow-xl relative">
@@ -63,7 +56,6 @@ export default function AboutPage() {
               It’s 24 Hours Of Sleepless Coding, Raw Ideas, And Relentless Execution —<br />
               A Playground For Minds Wired To Disrupt, Innovate, And Lead.
             </p>
->>>>>>> 41257f8a99b37689e8ae74556984f6c87ecbd392
 
             {/* Timeline and Info */}
             <div className="flex flex-col items-center gap-2">
