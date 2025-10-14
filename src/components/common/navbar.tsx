@@ -49,7 +49,7 @@ const Navbar = () => {
               {link.name}
             </Link>
             <Image
-              src="/images/Screenshot_2025-10-14_175852-removebg-preview.png"
+              src="/images/vector.png"
               alt={`${link.name} vector rotated`}
               width={202}
               height={101.5}
