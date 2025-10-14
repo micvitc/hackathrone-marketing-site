@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "@/components/common/footer";
 import Navbar from "@/components/common/navbar";
+import { CurvedBorder } from "@/components/curvedBorder";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -42,8 +43,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${centaur.variable} antialiased bg-black`}
       >
-        <Navbar />
+        <CurvedBorder className="p-2 m-3" strokeColor="#C9A85E" strokeWidth={2}>
+                  <CurvedBorder className="p-1" strokeColor="#C9A85E" strokeWidth={1}><Navbar />
         {children}
+        </CurvedBorder></CurvedBorder>
         <Footer />
       </body>
     </html>
