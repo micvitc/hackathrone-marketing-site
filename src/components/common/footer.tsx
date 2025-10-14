@@ -67,7 +67,7 @@ const Footer = () => {
           {/* Event Date and Location Image */}
           <div className="mt-8 flex justify-center">
             <Image
-              src="/images/image.png"
+              src="/images/sword.png"
               alt="October 29th & 30th, VIT Chennai, MG Auditorium"
               width={276}
               height={137}
