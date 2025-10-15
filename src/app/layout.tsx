@@ -6,24 +6,24 @@ import Navbar from "@/components/common/navbar";
 import { CurvedBorder } from "@/components/curvedBorder";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "../../public/fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "../../public/fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
 
 const cinzelDecorative = localFont({
-  src: "./fonts/CinzelDecorative-Bold.ttf",
+  src: "../../public/fonts/CinzelDecorative-Bold.ttf",
   variable: "--font-cinzel-decorative",
   weight: "700",
 });
 
 const centaur = localFont({
-  src: "./fonts/centaur-regular.ttf",
+  src: "../../public/fonts/CENTAUR.ttf",
   variable: "--font-centaur",
   weight: "400",
 });
@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${centaur.variable} antialiased bg-black`}
+        className={`${geistSans.variable} ${geistMono.variable} ${cinzelDecorative.variable} ${centaur.variable} antialiased  bg-[#0B0B0D]`}
       >
         <CurvedBorder className="p-2 m-3" strokeColor="#C9A85E" strokeWidth={2}>
                   <CurvedBorder className="p-1" strokeColor="#C9A85E" strokeWidth={1}><Navbar />
