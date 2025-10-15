@@ -10,23 +10,23 @@ const PillarsPage = () => {
     { image: "/images/image4.png" },  
     { image: "/images/image5.png" },  
   ];
+      useEffect(() => {
+        const fontLink = document.createElement("link");
+        // Reverting to the public Google Fonts URL for stability
+        fontLink.href = "https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap";
+        fontLink.rel = "stylesheet";
+        document.head.appendChild(fontLink);
 
+        return () => {
+            // Clean up the element when the component unmounts
+            document.head.removeChild(fontLink);
+        };
+    }, []); 
   return (
     <section
       className="relative overflow-x-hidden min-h-screen"  
       style={{ backgroundColor: "#0B0B0D" }}
     >
-      <style>
-                {`
-                @font-face {
-                    @font-face {
-                    font-family: 'CinzelDecorative';
-                    /* FIX: Pointing directly to your single .ttf file */
-                    src: url('/app/fonts/CinzelDecorative-Regular.ttf') format('truetype');
-                    font-weight: 400;
-                    font-style: normal;
-                }                `}
-            </style>
       {/* Main Content */}
       <div className="relative z-20 w-full h-full text-white text-center flex flex-col">
 
@@ -34,7 +34,7 @@ const PillarsPage = () => {
         <div className="mt-4 px-4">
           <h1
             className="font-cinzel font-normal text-[48px] sm:text-[64px] md:text-[96px] leading-[100%] max-md:leading-tight tracking-normal uppercase"
-            style={{ fontFamily: "Cinzel Decorative, serif" }}
+            style={{ fontFamily: 'Cinzel Decorative, serif' }}  
           >
             THE JUDGEMENT PILLARS
           </h1>
