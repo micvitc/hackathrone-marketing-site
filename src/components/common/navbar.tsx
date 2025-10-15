@@ -27,7 +27,7 @@ const Navbar = () => {
   }, [pathname]);
 
   return (
-    <nav className="relative  h-[20vh] w-[90vw] overflow-x-auto  flex justify-left sm:justify-center sm:w-[95vw] items-center">
+    <nav className="relative w-full h-[102.5px] top-[3vh] flex justify-center items-center">
       <div className="flex space-x-16"> {/* Adjust space-x as needed for overall spacing */}
         {navLinks.map((link) => (
           <div

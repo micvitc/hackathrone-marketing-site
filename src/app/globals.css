@@ -69,19 +69,6 @@
 
 
 @layer base {
-  /* Register Centaur TTF stored in public/fonts */
-  @font-face {
-    font-family: 'Centaur';
-    src: url('/fonts/CENTAUR.TTF') format('truetype');
-    font-weight: 400 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  /* small utility for Centaur usage */
-  .font-centaur {
-    font-family: 'Centaur', serif;
-  }
   * {
     @apply border-border;
   }

@@ -12,7 +12,7 @@ const centaurFont = `'Centaur', 'EB Garamond', 'Georgia', serif`;
 
 export default function AboutPage() {
   return (
-    <section className=" bg-[#0B0B0D] flex flex-col justify-center items-center py-1 px-2">
+    <section className="min-h-screen bg-[#0B0B0D] flex flex-col justify-center items-center py-12 px-2">
       {/* Outer Container */}
       <div className=" w-full  pb-10 pt-6 px-3 md:px-8 shadow-xl relative">
         {/* ABOUT US Heading */}
