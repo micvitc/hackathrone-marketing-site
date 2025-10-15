@@ -1,7 +1,7 @@
 "use client";
 
 import PillarCard from "@/components/PillarCard";
-import { useEffect } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const PillarsPage = () => {
   const pillarsData = [
@@ -10,51 +10,93 @@ const PillarsPage = () => {
     { image: "/images/image4.png" },  
     { image: "/images/image5.png" },  
   ];
+    const [activeIndex, setActiveIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const isUserScrolling = useRef(false);
+      useEffect(() => {
+        const fontLink = document.createElement("link");
+        fontLink.href = "https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap";
+        fontLink.rel = "stylesheet";
+        document.head.appendChild(fontLink);
 
+        return () => {
+            document.head.removeChild(fontLink);
+        };
+    }, []); 
   useEffect(() => {
-    const fontLink = document.createElement("link");
-    fontLink.href =
-      "https:fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap";
-    fontLink.rel = "stylesheet";
-    document.head.appendChild(fontLink);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = cardRefs.current.findIndex(ref => ref === entry.target);
+            if (index !== -1 && !isUserScrolling.current) {
+              setActiveIndex(index);
+            }
+          }
+        });
+      },
+      {
+        root: scrollRef.current,
+        rootMargin: "0px",
+        threshold: 0.5, 
+      }
+    );
+
+    cardRefs.current.forEach(ref => {
+      if (ref) observer.observe(ref);
+    });
 
     return () => {
-      document.head.removeChild(fontLink);
+      observer.disconnect();
     };
-  }, []);
+  }, [scrollRef.current]);
 
+  // --- Auto-Swipe Logic (Interval) ---
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isUserScrolling.current) {
+        const nextIndex = (activeIndex + 1) % pillarsData.length;
+        if (scrollRef.current && cardRefs.current[nextIndex]) {
+            scrollRef.current.scroll({
+                left: cardRefs.current[nextIndex]!.offsetLeft - 24,
+                behavior: 'smooth',
+            });
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [activeIndex, pillarsData.length]);
+
+
+  const handleDotClick = useCallback((index: number) => {
+    if (scrollRef.current && cardRefs.current[index]) {
+      isUserScrolling.current = true; 
+      
+      scrollRef.current.scroll({
+        left: cardRefs.current[index]!.offsetLeft - 24,
+        behavior: 'smooth',
+      });
+      setActiveIndex(index);
+
+      setTimeout(() => {
+        isUserScrolling.current = false;
+      }, 500); 
+    }
+  }, []);
   return (
     <section
       className="relative overflow-x-hidden min-h-screen"  
       style={{ backgroundColor: "#0B0B0D" }}
     >
-      <img
-        src="/images/image.png" 
-        alt="Decorative Border Frame"
-        className="absolute inset-0 z-10 w-full h-full object-fill pointer-events-none" 
-      />
-
-      {/* Main Content */}
       <div className="relative z-20 w-full h-full text-white text-center flex flex-col">
-        
-        {/****************** Navigation for now *******************************/}
-        <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-around pt-4 pb-8 sm:pt-6 sm:pb-12 text-xs sm:text-sm md:text-base">
-          {["ABOUT", "CRITERIA", "EVENTS", "SPONSORS", "FAQS"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="tracking-widest uppercase hover:text-yellow-400 transition duration-300"
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
 
 
         <div className="mt-4 px-4">
           <h1
             className="font-cinzel font-normal text-[48px] sm:text-[64px] md:text-[96px] leading-[100%] max-md:leading-tight tracking-normal uppercase"
-            style={{ fontFamily: "Cinzel Decorative, serif" }}
+            style={{ fontFamily: 'Cinzel Decorative, serif' }}  
           >
             THE JUDGEMENT PILLARS
           </h1>
@@ -66,15 +108,34 @@ const PillarsPage = () => {
         <div className="w-full max-w-6xl mx-auto mb-8 mt-12 sm:mt-16">
           
           <div className="-mx-4 lg:hidden"> 
-            <div className="flex gap-4 overflow-x-auto px-4 py-2">
-              {pillarsData.map((pillar, index) => (
-                <div key={index} className="flex-none w-64">
-                  <PillarCard image={pillar.image} />
-                </div>
-              ))}
-            </div>
-          </div>
+  <div 
+  ref={scrollRef}
+  className="flex gap-4 overflow-x-auto px-[calc(50%-8rem)] py-16 snap-x snap-mandatory scroll-smooth scrollbar-hide"
+>
+  {pillarsData.map((pillar, index) => (
+    <div 
+      key={index}
+      ref={el => { cardRefs.current[index] = el; }}
+      className="flex-none w-64 snap-center"
+    >
+      <PillarCard image={pillar.image} />
+    </div>
+  ))}
+</div>
 
+</div>
+         <div className="flex justify-center mt-4 space-x-2 lg:hidden">
+            {pillarsData.map((_, index) => (
+                <button
+                    key={index}
+                    onClick={() => handleDotClick(index)}
+                    className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                        index === activeIndex ? 'bg-yellow-400 scale-110' : 'bg-white opacity-40 hover:opacity-70'
+                    }`}
+                    aria-label={`Go to pillar ${index + 1}`}
+                />
+            ))}
+          </div>
           <div className="hidden lg:grid grid-cols-4 gap-0">
             {pillarsData.map((pillar, index) => (
               <PillarCard key={index} image={pillar.image} />
