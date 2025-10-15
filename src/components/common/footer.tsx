@@ -23,7 +23,7 @@ const Footer = () => {
         {/* MIC TECHNO VIT Section: Provides a description of the organization */}
         <div className="text-center md:text-left">
           <h3 className="font-cinzel-decorative text-[32px] uppercase text-[#CBAA5D] mb-2">MIC TECHNO VIT</h3>
-          <p className="font-centaur text-[32px] lowercase text-[#F2E6D6] md:text-left">
+          <p className="font-centaur text-[32px] lowercase text-white md:text-left">
             {/* TODO: Replace this placeholder text with actual descriptive content for MIC TECHNO VIT */}
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
@@ -33,17 +33,17 @@ const Footer = () => {
         <div className="text-center md:text-left">
           <h3 className="font-cinzel-decorative text-[32px] uppercase text-[#CBAA5D] mb-2">QUICK PASSAGES</h3>
           <ul>
-            <li className="font-centaur text-[32px] capitalize text-[#F2E6D6] mb-2"><a href="#" className="hover:underline">Hackathon</a></li>
-            <li className="font-centaur text-[32px] capitalize text-[#F2E6D6] mb-2"><a href="#" className="hover:underline">Workshops</a></li>
-            <li className="font-centaur text-[32px] capitalize text-[#F2E6D6] mb-2"><a href="#" className="hover:underline">Sponsors</a></li>
-            <li className="font-centaur text-[32px] capitalize text-[#F2E6D6]"><a href="#" className="hover:underline">Faqs</a></li>
+            <li className="font-centaur text-[32px] capitalize text-white mb-2"><a href="#" className="hover:underline">Hackathon</a></li>
+            <li className="font-centaur text-[32px] capitalize text-white mb-2"><a href="#" className="hover:underline">Workshops</a></li>
+            <li className="font-centaur text-[32px] capitalize text-white mb-2"><a href="#" className="hover:underline">Sponsors</a></li>
+            <li className="font-centaur text-[32px] capitalize text-white"><a href="#" className="hover:underline">Faqs</a></li>
           </ul>
         </div>
 
         {/* SEND A RAVEN Section: Contact information and social media links */}
         <div className="text-center">
           <h3 className="font-cinzel-decorative text-[32px] uppercase text-[#CBAA5D] mb-2">SEND A RAVEN</h3>
-          <p className="font-centaur text-[32px] lowercase text-[#F2E6D6] mb-4">mic@vit.ac.in</p>
+          <p className="font-centaur text-[32px] lowercase text-white mb-4">mic@vit.ac.in</p>
           
           {/* Social Media Icons: Links to Instagram, Twitter, and LinkedIn profiles */}
           <div className={`${styles.socialIcons} justify-center`}>
@@ -66,13 +66,15 @@ const Footer = () => {
 
           {/* Event Date and Location Image */}
           <div className="mt-8 flex justify-center">
-            <Image
-              src="/images/sword.png"
-              alt="October 29th & 30th, VIT Chennai, MG Auditorium"
-              width={276}
-              height={137}
-              className="w-full h-auto max-w-[276px]"
-            />Implement responsive footer with detailed styling
+            <div className="w-full max-w-[276px] text-left">
+              <Image
+                src="/images/sword.png"
+                alt="October 29th & 30th, VIT Chennai, MG Auditorium"
+                width={276}
+                height={137}
+                className="w-full h-auto"
+              />
+            </div>
           </div>
         </div>
       </div>
