@@ -11,44 +11,24 @@ const PillarsPage = () => {
     { image: "/images/image5.png" },  
   ];
 
-  useEffect(() => {
-    const fontLink = document.createElement("link");
-    fontLink.href =
-      "https:fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap";
-    fontLink.rel = "stylesheet";
-    document.head.appendChild(fontLink);
-
-    return () => {
-      document.head.removeChild(fontLink);
-    };
-  }, []);
-
   return (
     <section
       className="relative overflow-x-hidden min-h-screen"  
       style={{ backgroundColor: "#0B0B0D" }}
     >
-      <img
-        src="/images/image.png" 
-        alt="Decorative Border Frame"
-        className="absolute inset-0 z-10 w-full h-full object-fill pointer-events-none" 
-      />
-
+      <style>
+                {`
+                @font-face {
+                    @font-face {
+                    font-family: 'CinzelDecorative';
+                    /* FIX: Pointing directly to your single .ttf file */
+                    src: url('/app/fonts/CinzelDecorative-Regular.ttf') format('truetype');
+                    font-weight: 400;
+                    font-style: normal;
+                }                `}
+            </style>
       {/* Main Content */}
       <div className="relative z-20 w-full h-full text-white text-center flex flex-col">
-        
-        {/****************** Navigation for now *******************************/}
-        <nav className="w-full max-w-5xl mx-auto flex flex-wrap justify-around pt-4 pb-8 sm:pt-6 sm:pb-12 text-xs sm:text-sm md:text-base">
-          {["ABOUT", "CRITERIA", "EVENTS", "SPONSORS", "FAQS"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="tracking-widest uppercase hover:text-yellow-400 transition duration-300"
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
 
 
         <div className="mt-4 px-4">
