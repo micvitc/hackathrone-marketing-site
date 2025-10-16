@@ -110,7 +110,7 @@ const PillarsPage = () => {
           <div className="-mx-4 lg:hidden"> 
   <div 
   ref={scrollRef}
-  className="flex gap-4 overflow-x-auto px-[calc(50%-8rem)] py-16 snap-x snap-mandatory scroll-smooth scrollbar-hide"
+  className="flex gap-4 overflow-x-auto px-[calc(50%-8rem)] py-16 snap-x snap-mandatory scroll-smooth overflow-x-hidden"
 >
   {pillarsData.map((pillar, index) => (
     <div 
