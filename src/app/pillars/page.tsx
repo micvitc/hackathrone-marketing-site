@@ -96,7 +96,7 @@ const PillarsPage = () => {
         <div className="mt-4 px-4">
           <h1
             className="font-cinzel font-normal text-[48px] sm:text-[64px] md:text-[96px] leading-[100%] max-md:leading-tight tracking-normal uppercase"
-            style={{ fontFamily: 'Cinzel Decorative, serif' }}  
+            style={{ fontFamily: 'Cinzel Decorative, serif', paddingTop: '50px' }}  
           >
             THE JUDGEMENT PILLARS
           </h1>
