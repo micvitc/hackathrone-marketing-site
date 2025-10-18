@@ -1,74 +1,98 @@
+"use client";
 
-import React from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
-export default function GameOfDomains() {
-  const domains = [
-    {
-      title: "WEB DEV",
-      color: "border-sky-400 text-sky-300 shadow-sky-400/40",
-      icon: "public/images/image2.png",
-    },
-    {
-      title: "AI / ML",
-      color: "border-purple-400 text-purple-300 shadow-purple-400/40",
-      icon: "",
-    },
-    {
-      title: "CYBERSECURITY",
-      color: "border-rose-400 text-rose-300 shadow-rose-400/40",
-      icon: "/icons/cyber.png",
-    },
-  ];
+export default function LandingPage() {
+  const router = useRouter();
+  const [devfolioLoaded, setDevfolioLoaded] = useState(false);
+
+  //  Devfolio SDK
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://apply.devfolio.co/v2/sdk.js";
+    script.async = true;
+    script.defer = true;
+    
+    script.onload = () => {
+      setDevfolioLoaded(true);
+    };
+    
+    script.onerror = () => {
+      console.warn("Devfolio SDK failed to load");
+      setDevfolioLoaded(false);
+    };
+    
+    document.body.appendChild(script);
+    
+    const timeout = setTimeout(() => {
+      if (!devfolioLoaded) {
+        setDevfolioLoaded(false);
+      }
+    }, 2000);
+    
+    return () => {
+      clearTimeout(timeout);
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  const LandingLogo = () => (
+    <div className="flex items-center justify-center mb-16 md:mb-20">
+      <img
+        src="/images/landing.png"
+        alt="Hackathrone Logo"
+        width={850}
+        height={200}
+        className="drop-shadow-[0_0_35px_rgba(201,168,94,0.4)] w-[90%] max-w-[850px] h-auto"
+      />
+    </div>
+  );
+
+  const handleRegisterClick = () => {
+    window.open("https://hackathrone25.devfolio.co/", "_blank");
+  };
+
+  const LandingButtons = () => {
+    const buttonClass =
+      "bg-black border border-[#C9A85E] text-[#C9A85E] font-centaur tracking-wider text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-none hover:bg-[#C9A85E] hover:text-black transition-all duration-300 text-center cursor-pointer inline-block";
+
+    return (
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 justify-center items-center">
+        {/* Devfolio Button Container */}
+        <div className="relative">
+          <div
+            className="apply-button"
+            data-hackathon-slug="hackathrone25"
+            data-button-theme="light"
+          ></div>
+          
+          {!devfolioLoaded && (
+            <button 
+              className={buttonClass}
+              onClick={handleRegisterClick}
+            >
+              REGISTER NOW
+            </button>
+          )}
+        </div>
+
+        <button 
+          className={buttonClass} 
+          onClick={() => router.push("/events")}
+        >
+          EXPLORE EVENTS
+        </button>
+      </div>
+    );
+  };
 
   return (
-    <section className="relative bg-[#0b0b0c] text-white py-24 px-6 border-4 border-yellow-600 rounded-3xl mx-6 shadow-[0_0_25px_rgba(255,215,0,0.3)]">
-      {/* Golden frame corners */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-yellow-600 rounded-tl-3xl"></div>
-        <div className="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-yellow-600 rounded-tr-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-yellow-600 rounded-bl-3xl"></div>
-        <div className="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-yellow-600 rounded-br-3xl"></div>
+    <main className="min-h-[calc(100vh-102.5px)] pt-[102.5px] flex flex-col items-center justify-center bg-[#0B0B0D] text-[#F2E6D6] relative overflow-hidden px-4">
+      <div className="w-full max-w-7xl shadow-xl relative">
+        <LandingLogo />
+        <LandingButtons />
       </div>
-
-      {/* Title */}
-      <h2 className="text-6xl font-serif text-center mb-6 tracking-wide text-yellow-100">
-        GAME OF DOMAINS
-      </h2>
-      <p className="text-center text-gray-300 max-w-2xl mx-auto mb-16 italic">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </p>
-
-      {/* Cards */}
-      <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        {domains.map((d) => (
-          <div
-            key={d.title}
-            className={`relative group border-2 ${d.color} rounded-2xl text-center p-10 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_30px_var(--tw-shadow-color)]`}
-          >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300"></div>
-            <img
-              src={d.icon}
-              alt={d.title}
-              className="h-20 mx-auto mb-6 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
-            />
-            <h3
-              className={`text-3xl font-semibold mb-3 ${d.color} font-serif`}
-            >
-              {d.title}
-            </h3>
-            <p className="text-gray-400 leading-relaxed">
-              Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit, Sed Do
-              Eiusmod Tempor
-            </p>
-          </div>
-        ))}
-      </div>
-
-      {/* Bottom gold flourish */}
-      <div className="flex justify-center mt-16">
-        <div className="w-24 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent rounded-full"></div>
-      </div>
-    </section>
+    </main>
   );
 }
